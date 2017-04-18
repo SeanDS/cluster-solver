@@ -7,6 +7,7 @@ From https://stackoverflow.com/questions/1732438/how-do-i-run-all-python-unit-te
 
 testmodules = [
     'solver.test_graph',
+    'solver.test_method',
     'solver.geometric.test_cluster'
     ]
 
