@@ -134,8 +134,8 @@ class SetMethod(Method):
         # return a dict with the output set to the value
         return {self._outputs[0]: self._value}
 
-    def __unicode__(self):
-        """Unicode representation of the method
+    def __str__(self):
+        """String representation of the method
 
         Overrides :class:`~.Method`
         """
@@ -167,7 +167,7 @@ class AssignMethod(Method):
         # set the relevant output to the mapping and return
         return {self._outputs[0]: in_map(self._inputs[0])}
 
-    def __unicode__(self):
+    def __str__(self):
         # show the input's assigned value in the string representation
         return "{0}({1}={2})".format(self.name, self._inputs[0], self._value)
 
@@ -177,17 +177,14 @@ class MultiVariable(object):
     def __init__(self, name=None):
         self.name = name
 
-    def __unicode__(self):
+    def __str__(self):
         if self.name is None:
             return "MultiVariable#{0}".format(id(self))
 
         return "MultiVariable({0})".format(self.name)
 
-    def __str__(self):
-        return unicode(self).encode('utf-8')
-
     def __repr__(self):
-        return unicode(self)
+        return str(self)
 
 class MultiMethod(Method, metaclass=abc.ABCMeta):
     """A :class:`~Method` that is executed for multiple alternative inputs, \
@@ -471,9 +468,10 @@ by multiple methods".format(var))
 
         # call method.execute
         if has_nones:
+            logging.getLogger("method").debug("There are None values in the "
+            "input; output is therefore empty")
             outmap = {}
         else:
-            logging.getLogger("method").debug("No None values in map")
             outmap = method.execute(inmap)
 
         # update values in self._map
