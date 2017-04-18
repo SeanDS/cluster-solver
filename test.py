@@ -1,14 +1,25 @@
+import sys
 import unittest
+import logging
 
 """Run tests
 
 From https://stackoverflow.com/questions/1732438/how-do-i-run-all-python-unit-tests-in-a-directory
 """
 
+# set up logger
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(levelname)s - %(name)s - %(message)s",
+    datefmt="%H:%M:%S",
+    stream=sys.stdout)
+
 testmodules = [
+    'solver.test_geometry',
     'solver.test_graph',
     'solver.test_method',
-    'solver.geometric.test_cluster'
+    'solver.geometric.test_cluster',
+    'solver.geometric.test_configuration'
     ]
 
 suite = unittest.TestSuite()
