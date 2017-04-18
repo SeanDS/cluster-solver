@@ -6,7 +6,8 @@ From https://stackoverflow.com/questions/1732438/how-do-i-run-all-python-unit-te
 """
 
 testmodules = [
-    'solver.test_cluster'
+    'solver.test_graph',
+    'solver.geometric.test_cluster'
     ]
 
 suite = unittest.TestSuite()

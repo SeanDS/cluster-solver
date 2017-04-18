@@ -92,9 +92,9 @@ class Cluster(object, metaclass=abc.ABCMeta):
     def intersect_balloon(self, shared, balloon):
         pass
 
-    def over_constraints(self, other):
-        """Returns the overconstraints (duplicate distances and angles) between
-        this cluster and another
+    def common_constraints(self, other):
+        """Returns the common constraints (duplicate distances and angles)
+        between this cluster and another
 
         Cluster pairs can be made up of :class:`~Rigid`, :class:`~Hedgehog` or
         :class`~Balloon`
