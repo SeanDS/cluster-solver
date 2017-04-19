@@ -19,7 +19,8 @@ testmodules = [
     'solver.test_graph',
     'solver.test_method',
     'solver.geometric.test_cluster',
-    'solver.geometric.test_configuration'
+    'solver.geometric.test_configuration',
+    'solver.geometric.test_constraint'
     ]
 
 suite = unittest.TestSuite()
